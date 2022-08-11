@@ -7,7 +7,6 @@ import arc.util.Log
 import core.annotations.Command
 import mindustry.gen.Player
 import kotlin.reflect.full.findAnnotation
-import kotlin.system.exitProcess
 
 class Cargo(handler: CommandHandler, clientCommands: MutableList<CommandRunner<Player>>, serverCommands: MutableList<Cons<Array<String>>>) {
     init {
@@ -37,7 +36,6 @@ class Cargo(handler: CommandHandler, clientCommands: MutableList<CommandRunner<P
             }
         } catch (e: Exception) {
             Log.err(e)
-            exitProcess(1)
         }
     }
 }
