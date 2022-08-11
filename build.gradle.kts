@@ -19,7 +19,7 @@ dependencies {
 
     compileOnly("com.github.Anuken.Arc:arc-core:$mindustryVersion")
     compileOnly("com.github.Anuken.Mindustry:core:$mindustryVersion")
-    compileOnly("com.github.Anuken.Mindustry:server:$mindustryVersion")
+    // compileOnly("com.github.Anuken.Mindustry:server:$mindustryVersion")
 
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
 }
