@@ -6,19 +6,6 @@ version = "1.0.2"
 plugins {
     kotlin("jvm") version "1.7.10"
     `maven-publish`
-    application
-}
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            groupId = "io.lucin"
-            artifactId = "library"
-            version = "1.0.2"
-
-            from(components["java"])
-        }
-    }
 }
 
 tasks.withType<KotlinCompile> {
@@ -49,4 +36,22 @@ tasks.jar {
     }
 
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+val sourcesJar = task<Jar>("sourcesJar") {
+    from(sourceSets["main"].allSource)
+    archiveClassifier.set("sources")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = project.group as String
+            artifactId = project.name
+            version = project.version as String
+
+            from(components["kotlin"])
+            artifact(sourcesJar)
+        }
+    }
 }
