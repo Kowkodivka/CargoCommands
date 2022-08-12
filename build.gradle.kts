@@ -32,8 +32,4 @@ tasks.jar {
         exclude("**/META-INF/*.RSA")
     }
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
-
-    from(resources.toString()) {
-        include("plugin.json")
-    }
 }
