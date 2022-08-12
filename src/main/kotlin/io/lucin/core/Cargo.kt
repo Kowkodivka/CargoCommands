@@ -1,10 +1,10 @@
-package core
+package io.lucin.core
 
 import arc.func.Cons
 import arc.util.CommandHandler
 import arc.util.CommandHandler.CommandRunner
 import arc.util.Log
-import core.annotations.Command
+import io.lucin.core.annotations.Command
 import mindustry.gen.Player
 import kotlin.reflect.full.findAnnotation
 

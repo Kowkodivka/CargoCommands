@@ -1,4 +1,4 @@
-package core.annotations
+package io.lucin.core.annotations
 
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.CLASS, AnnotationTarget.FUNCTION)

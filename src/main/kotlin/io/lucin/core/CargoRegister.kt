@@ -1,4 +1,4 @@
-package core
+package io.lucin.core
 
 import arc.func.Cons
 import arc.util.CommandHandler
