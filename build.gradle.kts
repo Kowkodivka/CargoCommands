@@ -1,5 +1,8 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
+group = "io.lucin"
+version = "1.0.2"
+
 plugins {
     kotlin("jvm") version "1.7.10"
     `maven-publish`
