@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    val mindustryVersion = "v136"
+    val mindustryVersion = "v138"
 
     compileOnly("com.github.Anuken.Arc:arc-core:$mindustryVersion")
     compileOnly("com.github.Anuken.Mindustry:core:$mindustryVersion")
@@ -27,14 +27,7 @@ dependencies {
 }
 
 tasks.jar {
-    archiveFileName.set("${project.name}-${project.version}.jar")
-
-    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) }) {
-        exclude("**/META-INF/*.SF")
-        exclude("**/META-INF/*.DSA")
-        exclude("**/META-INF/*.RSA")
-    }
-
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
     duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
