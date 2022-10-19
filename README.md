@@ -1,8 +1,11 @@
 # Cargo commands
+
 ## Annotation-based library for registration commands
+
 ### Examples:
 
 Plugin main class:
+
 ```kotlin
 class ExamplePlugin : Plugin() {
     override fun registerServerCommands(handler: CommandHandler) {
@@ -16,6 +19,7 @@ class ExamplePlugin : Plugin() {
 ```
 
 Client command:
+
 ```kotlin
 @Command("echo", "Replies with your message.", "<message...>")
 class EchoCommandClient : CommandRunner<Player> {
@@ -26,6 +30,7 @@ class EchoCommandClient : CommandRunner<Player> {
 ```
 
 Server command:
+
 ```kotlin
 @Command("echo", "Replies with your message.", "<message...>")
 class EchoCommandServer : Cons<Array<String>> {

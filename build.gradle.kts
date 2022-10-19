@@ -4,7 +4,7 @@ group = "io.lucin"
 version = "1.0.2"
 
 plugins {
-    kotlin("jvm") version "1.7.10"
+    kotlin("jvm") version "1.7.20"
     `maven-publish`
 }
 
@@ -23,7 +23,7 @@ dependencies {
     compileOnly("com.github.Anuken.Arc:arc-core:$mindustryVersion")
     compileOnly("com.github.Anuken.Mindustry:core:$mindustryVersion")
 
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.10")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
 }
 
 tasks.jar {
@@ -43,7 +43,7 @@ publishing {
             artifactId = project.name
             version = project.version as String
 
-            from(components["kotlin"])
+            from(components["java"])
             artifact(sourcesJar)
         }
     }

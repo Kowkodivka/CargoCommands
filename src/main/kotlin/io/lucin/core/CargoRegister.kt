@@ -4,13 +4,11 @@ import arc.func.Cons
 import arc.util.CommandHandler
 import arc.util.CommandHandler.CommandRunner
 import mindustry.gen.Player
-import kotlin.reflect.KClass
 
 @Suppress("unused")
 class CargoRegister {
     private var clientCommands: MutableList<CommandRunner<Player>> = mutableListOf()
     private var serverCommands: MutableList<Cons<Array<String>>> = mutableListOf()
-    private var events: MutableList<KClass<*>> = mutableListOf()
 
     fun add(command: CommandRunner<Player>): CargoRegister {
         this.clientCommands.add(command)
@@ -32,21 +30,7 @@ class CargoRegister {
         return this
     }
 
-    fun put(event: KClass<*>): CargoRegister {
-        this.events.add(event)
-        return this
-    }
-
-    fun put(vararg events: KClass<*>): CargoRegister {
-        this.events.addAll(events)
-        return this
-    }
-
     fun build(handler: CommandHandler): Cargo {
         return Cargo(handler, clientCommands, serverCommands)
-    }
-
-    fun build(): Cargo {
-        return Cargo(events)
     }
 }
