@@ -1,12 +1,3 @@
-<style>
-    .cargo {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-    }
-</style>
-
 <div class="cargo">
     <h1>Cargo Commands</h1>
     <p>Annotation-based library for registration commands</p>
