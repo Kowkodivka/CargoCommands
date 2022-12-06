@@ -44,7 +44,7 @@ val sourcesJar = task<Jar>("sourcesJar") {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            from(components["kotlin"])
+            from(components["java"])
             artifact(sourcesJar)
 
             groupId = project.group as String
