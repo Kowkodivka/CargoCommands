@@ -26,12 +26,17 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.21")
 }
 
-tasks.jar {
-    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
-    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+java {
+    sourceCompatibility = JavaVersion.VERSION_19
+    targetCompatibility = JavaVersion.VERSION_19
 }
 
 val sourcesJar = task<Jar>("sourcesJar") {
+    manifest {
+        attributes["Implementation-Title"] = project.name
+        attributes["Implementation-Version"] = project.version
+    }
+
     from(sourceSets["main"].allSource)
     archiveClassifier.set("sources")
 }
@@ -39,12 +44,12 @@ val sourcesJar = task<Jar>("sourcesJar") {
 publishing {
     publications {
         create<MavenPublication>("release") {
+            from(components["kotlin"])
+            artifact(sourcesJar)
+
             groupId = project.group as String
             artifactId = project.name
             version = project.version as String
-
-            from(components["java"])
-            artifact(sourcesJar)
         }
     }
 }
