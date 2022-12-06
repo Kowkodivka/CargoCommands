@@ -37,6 +37,8 @@ val sourcesJar = task<Jar>("sourcesJar") {
         attributes["Implementation-Version"] = project.version
     }
 
+    archiveFileName.set("cargo-commands-${project.version}.jar")
+
     from(sourceSets["main"].allSource)
     archiveClassifier.set("sources")
 }
@@ -44,8 +46,8 @@ val sourcesJar = task<Jar>("sourcesJar") {
 publishing {
     publications {
         create<MavenPublication>("release") {
-            from(components["java"])
-            artifact(sourcesJar)
+            from(components["kotlin"])
+            artifact("build/libs/cargo-commands-${project.version}.jar")
 
             groupId = project.group as String
             artifactId = project.name

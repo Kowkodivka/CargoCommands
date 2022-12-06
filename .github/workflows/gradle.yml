@@ -15,7 +15,7 @@ jobs:
       - name: Setup gradlew
         run: chmod +x ./gradlew
       - name: Build jar
-        run: ./gradlew jar
+        run: ./gradlew sourcesJar
       - name: Upload built jar file
         uses: actions/upload-artifact@v2
         with:

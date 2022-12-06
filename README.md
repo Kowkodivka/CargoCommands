@@ -3,6 +3,9 @@
     <p>Annotation-based library for registration commands</p>
 </div>
 
+[![](https://www.jitpack.io/v/Kowkodivka/CargoCommands.svg)](https://www.jitpack.io/#Kowkodivka/CargoCommands)
+[![Java CI](https://github.com/Kowkodivka/CargoCommands/actions/workflows/gradle.yml/badge.svg)](https://github.com/Kowkodivka/CargoCommands/actions/workflows/gradle.yml)
+
 ## Installation
 
 #### Gradle
