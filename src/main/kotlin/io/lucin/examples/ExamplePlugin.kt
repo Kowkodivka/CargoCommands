@@ -4,7 +4,7 @@ import arc.util.CommandHandler
 import io.lucin.core.CargoRegister
 import mindustry.mod.Plugin
 
-class Main : Plugin() {
+class ExamplePlugin : Plugin() {
     override fun registerServerCommands(handler: CommandHandler) {
         CargoRegister().add(ExampleServerCommand()).build(handler)
     }

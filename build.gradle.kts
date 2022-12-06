@@ -4,7 +4,7 @@ group = "io.lucin"
 version = "1.0.2"
 
 plugins {
-    kotlin("jvm") version "1.7.20"
+    kotlin("jvm") version "1.7.21"
     `maven-publish`
 }
 
@@ -18,12 +18,12 @@ repositories {
 }
 
 dependencies {
-    val mindustryVersion = "v138"
+    val mindustryVersion = "v140.4"
 
     compileOnly("com.github.Anuken.Arc:arc-core:$mindustryVersion")
     compileOnly("com.github.Anuken.Mindustry:core:$mindustryVersion")
 
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.21")
 }
 
 tasks.jar {

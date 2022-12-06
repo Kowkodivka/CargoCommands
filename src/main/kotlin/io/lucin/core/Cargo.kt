@@ -15,7 +15,7 @@ class Cargo(
 ) {
     init {
         try {
-            if (clientCommands.isNotEmpty()) for (command in clientCommands) {
+            for (command in clientCommands) {
                 val annotations = command::class.findAnnotation<Command>() ?: continue
 
                 val name = annotations.name
@@ -25,7 +25,7 @@ class Cargo(
                 handler.register(name, parameters, description, command::accept)
             }
 
-            if (serverCommands.isNotEmpty()) for (command in serverCommands) {
+            for (command in serverCommands) {
                 val annotations = command::class.findAnnotation<Command>() ?: continue
 
                 val name = annotations.name
