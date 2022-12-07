@@ -2,6 +2,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 group = "io.lucin"
 version = "1.0.2"
+description = "Annotation-based library for registration commands"
 
 plugins {
     kotlin("jvm") version "1.7.21"
@@ -37,21 +38,42 @@ val sourcesJar = task<Jar>("sourcesJar") {
         attributes["Implementation-Version"] = project.version
     }
 
-    archiveFileName.set("cargo-commands-${project.version}.jar")
-
     from(sourceSets["main"].allSource)
     archiveClassifier.set("sources")
+}
+
+artifacts {
+    archives(sourcesJar)
 }
 
 publishing {
     publications {
         create<MavenPublication>("release") {
-            from(components["kotlin"])
-            artifact("build/libs/cargo-commands-${project.version}.jar")
+            from(components["java"])
+            // artifact()
 
-            groupId = project.group as String
-            artifactId = project.name
-            version = project.version as String
+            pom {
+                name.set(project.name)
+                description.set(project.description)
+                url.set("https://github.com/Kowkodivka/CargoCommands")
+
+                licenses {
+                    license {
+                        name.set("GPL-3.0")
+                        url.set("https://github.com/Kowkodivka/CargoCommands/LICENSE")
+                    }
+                }
+
+                developers {
+                    name.set("Kowkodivka")
+                }
+
+                scm {
+                    url.set("https://github.com/Kowkodivka/CargoCommands")
+                    connection.set("scm:git:git://github.com/Kowkodivka/CargoCommands.git")
+                    developerConnection.set("scm:git:ssh://git@github.com:Kowkodivka/CargoCommands.git")
+                }
+            }
         }
     }
 }
