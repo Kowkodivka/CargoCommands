@@ -30,6 +30,9 @@ dependencies {
 java {
     sourceCompatibility = JavaVersion.VERSION_19
     targetCompatibility = JavaVersion.VERSION_19
+    
+    withSourcesJar()
+    withJavadocJar()
 }
 
 val sourcesJar = task<Jar>("sourcesJar") {
