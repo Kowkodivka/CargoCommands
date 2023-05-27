@@ -35,25 +35,10 @@ java {
     withJavadocJar()
 }
 
-val sourcesJar = task<Jar>("sourcesJar") {
-    manifest {
-        attributes["Implementation-Title"] = project.name
-        attributes["Implementation-Version"] = project.version
-    }
-
-    from(sourceSets["main"].allSource)
-    archiveClassifier.set("sources")
-}
-
-artifacts {
-    archives(sourcesJar)
-}
-
 publishing {
     publications {
         create<MavenPublication>("release") {
             from(components["java"])
-            // artifact()
 
             pom {
                 name.set(project.name)
